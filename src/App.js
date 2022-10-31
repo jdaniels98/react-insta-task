@@ -21,6 +21,30 @@ function App() {
       : <div>
         <h1>this is the else part of the statement</h1>
         </div>}
+        <div>
+          <form>
+            <label>
+              Username:
+              <input type="text" username="username" />
+            </label>
+          </form>
+        </div>
+        <div>
+          <form>
+            <label>
+              Email Address:
+              <input type="text" username="username" />
+            </label>
+          </form>
+        </div>
+        <div>
+          <form>
+            <label>
+              Password:
+              <input type="text" username="username" />
+            </label>
+          </form>
+        </div>
     </div>
   );
 }
