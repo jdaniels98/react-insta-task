@@ -10,6 +10,7 @@ function App() {
   const [user, setUser] = useState()
   const [age, setAge] = useState()
   const [photos, setPhotos] = useState([])
+  const [isLoaded, setIsLoaded] = useState(false)
   // const [username, setUsername] = useState()
   // const [email, setEmail] = useState()
   // const [password, setPassword] = useState()
@@ -33,6 +34,7 @@ function App() {
     const response = await fetch ("https://picsum.photos/v2/list")
     const data = await response.json()
     setPhotos(data)
+    setIsLoaded(true)
   }
 
   return (
@@ -47,7 +49,7 @@ function App() {
 
       {/* <button onClick = {(event) => fetchImages()}>Fetch Images</button> */}
 
-      {photos.map((item, index) => {
+      {isLoaded && photos.map((item, index) => {
         return (
           <div>
             <img src={item.download_url} width="200px" />
