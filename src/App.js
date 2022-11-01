@@ -1,5 +1,5 @@
 import './App.css';
-import Box from './components/box';
+import Register from './components/Register';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -7,20 +7,20 @@ function App() {
     fetchImages()
   },[])
 
-  const [user, setUser] = useState()
-  const [age, setAge] = useState()
+  // const [user, setUser] = useState()
+  // const [age, setAge] = useState()
   const [photos, setPhotos] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
-  const [username, setUsername] = useState()
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
+  // const [username, setUsername] = useState()
+  // const [email, setEmail] = useState()
+  // const [password, setPassword] = useState()
 
-  const submitHandler = async (event) => {
-    event.preventDefault()
-    console.log(username,email,password)
-  }
+  // const submitHandler = async (event) => {
+  //   event.preventDefault()
+  //   console.log(username,email,password)
+  // }
 
-  const array = [{}]
+  // const array = [{}]
 
   const fetchImages = async () => {
     const response = await fetch ("https://picsum.photos/v2/list")
@@ -39,8 +39,10 @@ function App() {
         )
       })} */}
 
+      <Register />
 
-<form onSubmit ={submitHandler}>
+
+{/* <form onSubmit ={submitHandler}>
         <label>Username:
           <input onChange = {(event) => setUsername(event.target.value)} />
         </label>
@@ -54,7 +56,7 @@ function App() {
         </label>
         <br></br>
         <button type="submit">Click here to sign-up or login!</button>
-      </form>
+      </form> */}
       {/* <input onChange={(event) => setUser(event.target.value)} />
       <input onChange={(event) => setAge(event.target.value)} />
       {user ?
@@ -71,7 +73,7 @@ function App() {
           <div className='photos'>
             <div className='photosBorder'>
               <h2>Photo by {item.author}</h2>
-              <img src={item.download_url} width="200px" />
+              <img src={item.download_url} width="200px" alt="random from lorem picsum" />
             </div>
           </div>
         )
