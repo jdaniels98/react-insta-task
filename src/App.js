@@ -1,7 +1,8 @@
-import './App.css';
-import React from 'react';
-import Register from './components/Register';
-import { useState, useEffect } from 'react';
+import './App.css'
+import React from 'react'
+import { useState, useEffect } from 'react'
+import Register from './components/Register'
+import ReadUsers from './components/ReadUsers'
 
 const App = () => {
   useEffect(() => {
@@ -41,7 +42,11 @@ const App = () => {
       })} */}
 
       <Register setter={setUser} />
-      {user ? <h2>Hello! Welcome {user}!</h2>
+      {user ?
+      <div>
+        <h2>Hello! Welcome {user}!</h2>
+        <ReadUsers />
+      </div>
       :
       <h2>Please register an account with us!</h2>}
 

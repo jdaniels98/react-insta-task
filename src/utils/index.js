@@ -16,3 +16,19 @@ export const regUser = async (username, email, password, setter) => {
         console.log(error)
     }
 }
+
+export const readUsers = async () => {
+    try {
+        const response = await fetch("http://localhost:5001/readUser", {
+            method: "GET",
+            headers: {"Content-Type": "application/json"}
+        })
+        const data = await response.json()
+        // console.log(data)
+        const usernames = data.user.map(users => users.username)
+        // console.log(usernames)
+        return usernames
+    } catch (error) {
+        console.log(error)
+    }
+}
