@@ -1,19 +1,20 @@
 import './App.css';
+import React from 'react';
 import Register from './components/Register';
 import { useState, useEffect } from 'react';
 
-function App() {
+const App = () => {
   useEffect(() => {
     fetchImages()
   },[])
-
-  // const [user, setUser] = useState()
-  // const [age, setAge] = useState()
-  const [photos, setPhotos] = useState([])
-  const [isLoaded, setIsLoaded] = useState(false)
+  
+  const [user, setUser] = useState()
   // const [username, setUsername] = useState()
   // const [email, setEmail] = useState()
   // const [password, setPassword] = useState()
+  // const [age, setAge] = useState()
+  const [photos, setPhotos] = useState([])
+  const [isLoaded, setIsLoaded] = useState(false)
 
   // const submitHandler = async (event) => {
   //   event.preventDefault()
@@ -39,7 +40,10 @@ function App() {
         )
       })} */}
 
-      <Register />
+      <Register setter={setUser} />
+      {user ? <h2>Hello! Welcome {user}!</h2>
+      :
+      <h2>Please register an account with us!</h2>}
 
 
 {/* <form onSubmit ={submitHandler}>
