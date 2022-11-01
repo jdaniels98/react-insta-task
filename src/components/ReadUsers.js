@@ -17,8 +17,7 @@ const ReadUsers = () => {
                     <div className="empty">
                         <h3>No users found!</h3>
                     </div>
-                )
-            }
+                )}
         </div>
     )
 }
