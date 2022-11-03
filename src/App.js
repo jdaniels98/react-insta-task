@@ -1,6 +1,7 @@
 import './App.css'
 import React from 'react'
 import { useState, useEffect } from 'react'
+import Login from "./components/Login"
 import Register from './components/Register'
 import ReadUsers from './components/ReadUsers'
 import UpdateUser from './components/UpdateUser'
@@ -25,7 +26,7 @@ const App = () => {
   return (
     <div className="App">
 
-      <Register setter={setUser} />
+      <Login setter={setUser} />
       {user ?
       <div>
         <h2>Hello! Welcome {user}!</h2>
