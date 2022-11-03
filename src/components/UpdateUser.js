@@ -2,33 +2,58 @@ import React from "react"
 import { useState } from "react"
 import { updateUser } from "../utils"
 
-const UpdateUsers = () => {
+const UpdateUser = ({user}) => {
+    console.log(user)
     const [username, setUsername] = useState()
-    const [key, setKey] = useState()
-    const [value, setValue] = useState()
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
 
-    const changeHandler = async (event) => {
+    const updateUsername = async (event) => {
         event.preventDefault()
-        await updateUser(username, key, value)
+        console.log(username)
+        await updateUser(user, "username", username)
+    }
+    const updateEmail = async (event) => {
+        event.preventDefault()
+        console.log(email)
+        await updateUser(user, "email", email)
+    }
+    const updatePassword = async (event) => {
+        event.preventDefault()
+        console.log(password)
+        await updateUser(user, "password", password)
     }
 
+    // const changeHandler = async (event) => {
+    //     event.preventDefault()
+    //     await updateUser(username, key, value)
+    // }
+
     return (
-        <form onSubmit={changeHandler}>
-            <label>Username:
-                <input onChange={(event) => setUsername(event.target.value)}/>
+        <>
+        <form onSubmit={updateUsername}>
+            <label>Update Username:
+                <input onChange={(event) => setUsername(event.target.value)} />
+                <button type="submit">Update</button>
             </label>
-            <br></br>
-            <label>Key:
-                <input onChange={(event) => setKey(event.target.value)}/>
-            </label>
-            <br></br>
-            <label>Value:
-                <input onChange={(event) => setValue(event.target.value)}/>
-            </label>
-            <br></br>
-            <button type="submit">Update!</button>
         </form>
+        <br></br>
+        <form onSubmit={updateEmail}>
+            <label>Update Email:
+                <input onChange={(event) => setEmail(event.target.value)} />
+                <button type="submit">Update</button>
+            </label>
+        </form>
+        <br></br>
+        <form onSubmit={updatePassword}>
+            <label>Update Password:
+                <input onChange={(event) => setPassword(event.target.value)} />
+                <button type="submit">Update</button>
+            </label>
+        </form>
+        <br></br>
+        </>
     )
 }
 
-export default UpdateUsers
+export default UpdateUser

@@ -1,22 +1,16 @@
-import React from "react"
-import { useState } from "react"
-import { deleteUser } from "../utils"
+import React from 'react'
+import { deleteUser } from '../utils'
 
-const DeleteUser = () => {
-    const [username, setUsername] = useState()
-
-    const deleteHandler = async (event) => {
+const DeleteUser = ({user}) => {
+    const deleteAcc = async (event) => {
         event.preventDefault()
-        await deleteUser(username)
+        await deleteUser(user)
     }
-    
-    return (
-        <form onSubmit={deleteHandler}>
-            <label>Enter Username:
-                <input onChange={(event) => setUsername(event.target.value)} />
-            </label>
-            <br></br>
-            <button type="submit">Delete This User!</button>
+
+    return ( 
+
+        <form onSubmit = {deleteAcc}>
+            <button type="submit">Delete your account</button>
         </form>
     )
 }

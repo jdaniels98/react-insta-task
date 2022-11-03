@@ -3,6 +3,8 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import Register from './components/Register'
 import ReadUsers from './components/ReadUsers'
+import UpdateUser from './components/UpdateUser'
+import DeleteUser from './components/DeleteUser'
 
 const App = () => {
   useEffect(() => {
@@ -28,9 +30,11 @@ const App = () => {
       <div>
         <h2>Hello! Welcome {user}!</h2>
         <ReadUsers />
+        <UpdateUser user={user} />
+        <DeleteUser user={user} />
       </div>
       :
-      <h2>Please register an account with us!</h2>}
+      <h2>Please Register!</h2>}
 
       {isLoaded && photos.map((item, index) => {
         return (
