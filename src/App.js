@@ -2,10 +2,12 @@ import './App.css'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import Login from "./components/Login"
-import Register from './components/Register'
+// import Register from './components/Register'
 import ReadUsers from './components/ReadUsers'
 import UpdateUser from './components/UpdateUser'
 import DeleteUser from './components/DeleteUser'
+import { getCookie } from './common'
+import { findUser } from './utils'
 
 const App = () => {
   useEffect(() => {
@@ -15,6 +17,18 @@ const App = () => {
   const [user, setUser] = useState()
   const [photos, setPhotos] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    let cookie = getCookie("jwt_token")
+    if (cookie !== false) {
+      loginWithToken(cookie)
+    }
+  },[])
+
+  const loginWithToken = async (cookie) =>{
+    const user = await findUser(cookie)
+    setUser(user)
+  }
 
   const fetchImages = async () => {
     const response = await fetch ("https://picsum.photos/v2/list")

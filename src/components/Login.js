@@ -23,7 +23,7 @@ const Login = ({setter}) => {
             </label>
             <br></br>
             <label>Password:
-                <input onChange={(event )=> setPassword(event.target.value)} />
+                <input onChange={(event )=> setPassword(event.target.value)} type="password" />
             </label>
             <br></br>
             <button type="submit">Login</button>
