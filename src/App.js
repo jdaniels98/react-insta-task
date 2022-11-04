@@ -9,7 +9,9 @@ import { getCookie } from './common'
 import { findUser } from './utils'
 
 const App = () => {
-  
+  const [user, setUser] = useState()
+  const [photos, setPhotos] = useState([])
+
   useEffect(() => {
     fetchImages()
     let cookie = getCookie("jwt_token")
@@ -17,9 +19,6 @@ const App = () => {
       loginWithToken(cookie)
     }
   },[])
-  
-  const [user, setUser] = useState()
-  const [photos, setPhotos] = useState([])
 
   useEffect(() => {
     let cookie = getCookie("jwt_token")
