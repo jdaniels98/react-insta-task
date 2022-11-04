@@ -2,7 +2,6 @@ import './App.css'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import Login from "./components/Login"
-// import Register from './components/Register'
 import ReadUsers from './components/ReadUsers'
 import UpdateUser from './components/UpdateUser'
 import DeleteUser from './components/DeleteUser'
@@ -21,7 +20,6 @@ const App = () => {
   
   const [user, setUser] = useState()
   const [photos, setPhotos] = useState([])
-  const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
     let cookie = getCookie("jwt_token")
@@ -39,7 +37,6 @@ const App = () => {
     const response = await fetch (`${process.env.REACT_APP_API}`)
     const data = await response.json()
     setPhotos(data)
-    setIsLoaded(true)
   }
 
   return (
@@ -49,14 +46,7 @@ const App = () => {
       {user ?
       <div>
         <h2>Hello! Welcome {user}!</h2>
-        <ReadUsers />
-        <UpdateUser user={user} />
-        <DeleteUser user={user} />
-      </div>
-      :
-      <h2>Please Register!</h2>}
-
-      {isLoaded && photos.map((item, index) => {
+        {photos.map((item, index) => {
         return (
           <div className='photos'>
             <div className='photosBorder'>
@@ -66,8 +56,15 @@ const App = () => {
           </div>
         )
       })}
+        <ReadUsers />
+        <UpdateUser user={user} />
+        <DeleteUser user={user} />
+      </div>
+      :
+      <h2>Please Register!</h2>}
     </div>
   );
 }
 
 export default App;
+
