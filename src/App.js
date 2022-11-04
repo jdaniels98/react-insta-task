@@ -10,8 +10,13 @@ import { getCookie } from './common'
 import { findUser } from './utils'
 
 const App = () => {
+  
   useEffect(() => {
     fetchImages()
+    let cookie = getCookie("jwt_token")
+    if (cookie !== false) {
+      loginWithToken(cookie)
+    }
   },[])
   
   const [user, setUser] = useState()
@@ -31,7 +36,7 @@ const App = () => {
   }
 
   const fetchImages = async () => {
-    const response = await fetch ("https://picsum.photos/v2/list")
+    const response = await fetch (`${process.env.REACT_APP_API}`)
     const data = await response.json()
     setPhotos(data)
     setIsLoaded(true)
