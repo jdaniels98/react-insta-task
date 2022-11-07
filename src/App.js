@@ -47,7 +47,7 @@ const App = () => {
       
 
       {cookie !== false ? <UpdateUser user={user} /> : <Login setter={setUser} />}
-      {cookie !== false ? <DeleteUser user={user} /> : <Login setter={setUser} />}
+      {cookie !== false ? <DeleteUser user={user} /> : null}
       {user ?
       <div>
         <h2>Hello! Welcome {user}!</h2>
