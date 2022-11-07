@@ -1,3 +1,52 @@
+.App {
+  margin-left: 200px;
+  padding: 0px 10px;
+}
+
+h2 {
+  color: red;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+
+.sideNav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  padding-top: 20px;
+  padding-right: 30px;
+  border-width: 2px;
+  border-color: lightgray;
+  border-right-style: solid;
+}
+.sideNav a {
+  padding: 6px 8px 30px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+}
+.sideNav a:hover {
+  cursor: pointer;
+  color: rgb(82, 76, 76);
+}
+.sideNav p {
+  padding: 6px 8px 30px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  display: block;
+}
+.sideNav p:hover {
+  cursor: pointer;
+}
+
 label {
   margin-left: 30px;
   display: inline-block;
@@ -42,4 +91,7 @@ button {
 
 img {
   width: 600px;
+}
+img:hover {
+  cursor: pointer;
 }

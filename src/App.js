@@ -19,14 +19,7 @@ const App = () => {
       loginWithToken(cookie)
     }
   },[])
-
-  useEffect(() => {
-    let cookie = getCookie("jwt_token")
-    if (cookie !== false) {
-      loginWithToken(cookie)
-    }
-  },[])
-
+  
   const loginWithToken = async (cookie) =>{
     const user = await findUser(cookie)
     setUser(user)
@@ -41,10 +34,23 @@ const App = () => {
   return (
     <div className="App">
 
+      <div className="sideNav">
+        <p>Instagram</p>
+        <a href="App.js">Home</a>
+        <a href="App.js">Search</a>
+        <a href="App.js">Explore</a>
+        <a href="App.js">Messages</a>
+        <a href="App.js">Notifications</a>
+        <a href="App.js">Create</a>
+        <a href="App.js">Profile</a>
+      </div>
+      
+
       <Login setter={setUser} />
       {user ?
       <div>
         <h2>Hello! Welcome {user}!</h2>
+        <UpdateUser user={user} />
         {photos.map((item, index) => {
         return (
           <div className='photos'>
@@ -56,7 +62,7 @@ const App = () => {
         )
       })}
         <ReadUsers />
-        <UpdateUser user={user} />
+
         <DeleteUser user={user} />
       </div>
       :
