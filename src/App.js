@@ -65,7 +65,7 @@ const App = () => {
       })}
       </div>
       :
-      <h2>Please register with us!</h2>}
+      <h2>Please register or log in!</h2>}
     </div>
   );
 }
