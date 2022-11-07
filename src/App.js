@@ -1,6 +1,7 @@
 import './App.css'
 import React from 'react'
 import { useState, useEffect } from 'react'
+import Register from './components/Register'
 import Login from "./components/Login"
 import UpdateUser from './components/UpdateUser'
 import DeleteUser from './components/DeleteUser'
@@ -47,7 +48,7 @@ const App = () => {
       
 
       {cookie !== false ? <UpdateUser user={user} /> : <Login setter={setUser} />}
-      {cookie !== false ? <DeleteUser user={user} /> : null}
+      {cookie !== false ? <DeleteUser user={user} /> : <Register />}
       {user ?
       <div>
         <h2>Hello! Welcome {user}!</h2>
