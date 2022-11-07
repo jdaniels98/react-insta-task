@@ -30,29 +30,29 @@ const UpdateUser = ({user}) => {
     // }
 
     return (
-        <>
+        <div>
         <form onSubmit={updateUsername}>
-            <label>Update Username:
+            <label className="updateFRM" id="updateFRM1" >Update Username:
                 <input onChange={(event) => setUsername(event.target.value)} />
                 <button type="submit">Update</button>
             </label>
         </form>
         <br></br>
         <form onSubmit={updateEmail}>
-            <label>Update Email:
+            <label className="updateFRM" >Update Email:
                 <input onChange={(event) => setEmail(event.target.value)} />
                 <button type="submit">Update</button>
             </label>
         </form>
         <br></br>
         <form onSubmit={updatePassword}>
-            <label>Update Password:
+            <label className="updateFRM" >Update Password:
                 <input onChange={(event) => setPassword(event.target.value)} />
                 <button type="submit">Update</button>
             </label>
         </form>
         <br></br>
-        </>
+        </div>
     )
 }
 
