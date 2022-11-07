@@ -46,9 +46,10 @@ const App = () => {
         <a href="App.js">Profile</a>
       </div>
       
-
-      {cookie !== false ? <UpdateUser user={user} /> : <Login setter={setUser} />}
-      {cookie !== false ? <DeleteUser user={user} /> : <Register />}
+      <div className='appForms'>
+        {cookie !== false ? <UpdateUser user={user} /> : <Login setter={setUser} />}
+        {cookie !== false ? <DeleteUser user={user} /> : <Register className='register' />}
+      </div>
       {user ?
       <div>
         <h2>Hello! Welcome {user}!</h2>
@@ -64,7 +65,7 @@ const App = () => {
       })}
       </div>
       :
-      <h2>Please Register!</h2>}
+      <h2>Please register with us!</h2>}
     </div>
   );
 }

@@ -26,7 +26,7 @@ const Register = ({setter}) => {
                 <input onChange={(event) => setPassword(event.target.value)} />
             </label>
             <br></br>
-            <button type="submit">Sign In</button>
+            <button type="submit">Register</button>
         </form>
     )
 }
